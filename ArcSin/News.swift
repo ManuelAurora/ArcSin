@@ -8,31 +8,40 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-class News
+class News: NSManagedObject
 {
-    let lastChangeTime: Date?
-    let fullText: String?
-    let header: String?
-    let id: Int?
-    let smallImage: String?
-    let largeImg: String?
-    let publicationDate: Date?
-    let shortText: String?
+    @NSManaged var lastChangeTime: Date?
+    @NSManaged var fullText: String?
+    @NSManaged var header: String?
+    @NSManaged var id: NSNumber?
+    @NSManaged var smallImage: NSData?
+    @NSManaged var largeImg: NSData?
+    @NSManaged var publicationDate: Date?
+    @NSManaged var shortText: String?
+    
+    var smallImageURL: String?
+    var imageURL: String?
     
     init(with dict: [String: AnyObject]) {
-       
+        
+        let entity = NSEntityDescription.entity(forEntityName: "News", in: DataManager.sharedInstance().context)
+        
+       super.init(entity: entity!, insertInto: DataManager.sharedInstance().context)
+        
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-ll-yyyy hh:mm:ss"
+        
+        formatter.dateFormat = "dd-MM-yyyy hh:mm:ss"
         
         fullText = dict["full_text"] as? String ?? ""
         header = dict["header"] as? String ?? ""
-        id = dict["id"] as? Int ?? nil
+        id = dict["id"] as? NSNumber ?? nil
         shortText = dict["short_text"] as? String ?? ""
         lastChangeTime = formatter.date(from: dict["change_datetime"] as! String)
         publicationDate = formatter.date(from: dict["publish_time"] as! String)
-        smallImage = dict["img_preview_ulr"] as? String ?? nil
-        largeImg = dict["img_url"] as? String ?? nil
+        smallImageURL = dict["img_preview_ulr"] as? String ?? nil
+        imageURL = dict["img_url"] as? String ?? nil
     }
     
     

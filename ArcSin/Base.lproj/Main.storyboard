@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -62,6 +63,7 @@
                                     <outlet property="headerLabel" destination="Vjn-nW-quK" id="PNr-ad-fB0"/>
                                     <outlet property="shortTextLabel" destination="W9p-Im-1H9" id="pfg-2K-c0l"/>
                                     <outlet property="smallImageView" destination="7g4-at-0cK" id="WaE-Nh-Mop"/>
+                                    <segue destination="LeZ-fO-xLQ" kind="show" identifier="NewsShow" id="41q-kY-haw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -86,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="580" y="98.50074962518741"/>
         </scene>
-        <!--View Controller-->
+        <!--News Detail View Controller-->
         <scene sceneID="rcK-gS-oym">
             <objects>
-                <viewController id="LeZ-fO-xLQ" sceneMemberID="viewController">
+                <viewController id="LeZ-fO-xLQ" customClass="NewsDetailViewController" customModule="ArcSin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7qN-le-5DJ"/>
                         <viewControllerLayoutGuide type="bottom" id="uKP-QK-T7d"/>
@@ -97,8 +99,46 @@
                     <view key="view" contentMode="scaleToFill" id="s6Y-UG-dGc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qFS-Cp-Tz4"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sYe-o8-Bqh">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fE8-ze-ewU">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVZ-NC-uHY">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gFU-I1-M7R">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uKP-QK-T7d" firstAttribute="top" secondItem="qFS-Cp-Tz4" secondAttribute="bottom" constant="326" id="0qA-ar-leY"/>
+                            <constraint firstAttribute="trailing" secondItem="sYe-o8-Bqh" secondAttribute="trailing" constant="8" id="I0k-UB-cSF"/>
+                            <constraint firstItem="sYe-o8-Bqh" firstAttribute="top" secondItem="qFS-Cp-Tz4" secondAttribute="bottom" constant="25" id="JdR-wk-jzd"/>
+                            <constraint firstItem="qFS-Cp-Tz4" firstAttribute="top" secondItem="7qN-le-5DJ" secondAttribute="bottom" id="Rox-hF-EyK"/>
+                            <constraint firstItem="qFS-Cp-Tz4" firstAttribute="leading" secondItem="s6Y-UG-dGc" secondAttribute="leadingMargin" id="TDO-X3-WsE"/>
+                            <constraint firstItem="sYe-o8-Bqh" firstAttribute="leading" secondItem="s6Y-UG-dGc" secondAttribute="leading" constant="8" id="WqA-K7-UOq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qFS-Cp-Tz4" secondAttribute="trailing" id="eFf-Ai-mid"/>
+                            <constraint firstItem="uKP-QK-T7d" firstAttribute="top" secondItem="sYe-o8-Bqh" secondAttribute="bottom" constant="8" id="zpo-vW-bWu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="NVZ-NC-uHY" id="ugC-u5-a5X"/>
+                        <outlet property="fullTextView" destination="gFU-I1-M7R" id="gwB-v7-WHB"/>
+                        <outlet property="imageView" destination="qFS-Cp-Tz4" id="QoO-SR-lkg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAp-QR-Ix9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

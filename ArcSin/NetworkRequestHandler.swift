@@ -75,11 +75,11 @@ class NetworkRequestHandler
         
         var request = URLRequest(url: urlWithComponents!.url!)
         
-        request.httpBody = (urlWithComponents!.url!.absoluteString).data(using: .utf8)
+        request.httpBody = (urlWithComponents!.url!.absoluteString).data(using: .utf8)!
         
         request.httpMethod = "POST"
         
-        print(urlWithComponents!.url!)
+        print(String(data: request.httpBody!, encoding: .utf8))
         
         let task = sharedSession.dataTask(with: request) {
             
@@ -112,10 +112,11 @@ class NetworkRequestHandler
                     {
                         if let content = responseData["content"] as? [[String: AnyObject]]
                         {
-                            
-                            
-                            
-                            
+                            for item in content
+                            {
+                                _ = News(with: item)
+                                
+                            }
                         }
                     }
                 }
