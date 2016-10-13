@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "CoreDataTableViewController.numberOfSections(in : UITableView) -&gt; Int:CoreDataTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fetchedResultsController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NetworkRequestHandler.requestData() -&gt; ():NetworkRequestHandler.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "deviceStatusIdentifier.location">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewsTableViewController.viewDidAppear(Bool) -&gt; ():NewsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "deviceStatusIdentifier">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NetworkRequestHandler.(requestData() -&gt; ()).(closure #1):NetworkRequestHandler.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "httpStatus.statusCode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
