@@ -8,19 +8,6 @@
 
 import UIKit
 
-struct Storyboard
-{
-    struct Segues
-    {
-        static let showRecordDetail = "ShowRecordDetail"
-    }
-    
-    struct ID
-    {
-        static let newRecordVC = "CreateNewRecord"
-        static let recordCell  = "RecordCell"
-    }
-}
 
 struct Network
 {
@@ -56,8 +43,5 @@ struct Network
         static let fromId = "0"
         static let max = "100"
     }
-    struct Methods
-    {
-        
-    }
+    
 }
