@@ -20,6 +20,17 @@ class NewsDetailViewController: UIViewController
     
     var news: News!
     
+    @IBAction func tappedOnImage(_ sender: UITapGestureRecognizer) {
+       
+        let app = UIApplication.shared
+        let url = news.link
+
+        guard let link = url, link.contains("http://") || link.contains("https://") else { return }
+       
+        app.open(URL(string: link)!, options: [:], completionHandler: nil)
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

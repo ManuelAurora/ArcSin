@@ -8,12 +8,13 @@
         <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="largImage" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="lastChangeTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="publicationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="shortText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="smallImage" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="smallImageURL" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="News" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="News" positionX="-63" positionY="-18" width="128" height="225"/>
     </elements>
 </model>

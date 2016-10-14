@@ -35,6 +35,7 @@ class News: NSManagedObject
         smallImageURL = dict["img_preview_url"] as? String
         imageURL = dict["img_url"] as? String
         contentID = Int16(dict["content_type_id"] as! Int)
+        link = dict["link"] as? String
     }
 
 }

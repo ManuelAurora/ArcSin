@@ -57,7 +57,7 @@ class NetworkRequestHandler
             let contentType = URLQueryItem(name: Network.URLParameterKey.contentTypeId, value: Network.URLParameterValue.contentTypeId)
             let fromID = URLQueryItem(name: Network.URLParameterKey.fromId, value: Network.URLParameterValue.fromId)
             let max = URLQueryItem(name: Network.URLParameterKey.max, value: Network.URLParameterValue.max)
-            let version = URLQueryItem(name: Network.URLParameterKey.appVersion, value: Network.URLParameterValue.appVersionTwo)
+            let version = URLQueryItem(name: Network.URLParameterKey.appVersion, value: Network.URLParameterValue.appVersionOne)
             
             urlWithComponents.queryItems?.append(version)
             urlWithComponents.queryItems?.append(queryUid)
@@ -79,7 +79,7 @@ class NetworkRequestHandler
         
         request.httpBody = urlWithComponents.query!.data(using: .utf8)
         
-        request.httpMethod = "POST"       
+        request.httpMethod = "POST"
         
         let task = sharedSession.dataTask(with: request) {
             

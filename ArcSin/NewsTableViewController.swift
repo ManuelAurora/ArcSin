@@ -16,7 +16,7 @@ class NewsTableViewController: CoreDataTableViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+               
         fetchData()
         
         networkRequestHandler.allNews = fetchedResultsController?.fetchedObjects as! [News]
@@ -25,8 +25,6 @@ class NewsTableViewController: CoreDataTableViewController
         tableView.rowHeight = UITableViewAutomaticDimension
         
         deviceStatusIdentifier.getCurrentLocation()
-        
-        
         
     }
 
