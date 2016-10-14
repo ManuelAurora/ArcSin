@@ -79,9 +79,7 @@ class NetworkRequestHandler
         
         request.httpBody = urlWithComponents.query!.data(using: .utf8)
         
-        request.httpMethod = "POST"
-        
-        print(String(data: request.httpBody!, encoding: .utf8))
+        request.httpMethod = "POST"       
         
         let task = sharedSession.dataTask(with: request) {
             
@@ -99,7 +97,6 @@ class NetworkRequestHandler
                 let jsonData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String: AnyObject]
                 
                 print(jsonData)
-                
                 
                 if let responseData = jsonData["data"] as? [String: AnyObject]
                 {
@@ -119,6 +116,7 @@ class NetworkRequestHandler
                                 if !self.allNews.contains(where: { news -> Bool in Int(news.id)  == item["id"] as! Int })
                                 {
                                     _ = News(with: item)
+                                    try! DataManager.sharedInstance().saveContext()
                                 }
                             }
                         }
