@@ -39,8 +39,8 @@
 		6405EFE11DAF9DFD006B2FB2 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		6405EFE31DAFA6AD006B2FB2 /* DeviceStatusIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceStatusIdentifier.swift; sourceTree = "<group>"; };
 		6405EFE51DAFC82D006B2FB2 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
-		6450B9CC1DB0E03500913A21 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
-		6450B9CD1DB0E03500913A21 /* News+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "News+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6450B9CC1DB0E03500913A21 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = News.swift; path = ../News.swift; sourceTree = "<group>"; };
+		6450B9CD1DB0E03500913A21 /* News+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "News+CoreDataProperties.swift"; path = "../News+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		647AA9501DAFE29B00E55A0A /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,8 +58,6 @@
 		6405EFB81DAF9997006B2FB2 = {
 			isa = PBXGroup;
 			children = (
-				6450B9CC1DB0E03500913A21 /* News.swift */,
-				6450B9CD1DB0E03500913A21 /* News+CoreDataProperties.swift */,
 				6405EFC31DAF9997006B2FB2 /* ArcSin */,
 				6405EFC21DAF9997006B2FB2 /* Products */,
 			);
@@ -76,6 +74,8 @@
 		6405EFC31DAF9997006B2FB2 /* ArcSin */ = {
 			isa = PBXGroup;
 			children = (
+				6450B9CC1DB0E03500913A21 /* News.swift */,
+				6450B9CD1DB0E03500913A21 /* News+CoreDataProperties.swift */,
 				6405EFC41DAF9997006B2FB2 /* AppDelegate.swift */,
 				6405EFC61DAF9997006B2FB2 /* NewsTableViewController.swift */,
 				6405EFDB1DAF9A27006B2FB2 /* CoreDataManager.swift */,
