@@ -116,7 +116,7 @@ class NetworkRequestHandler
                         {
                             for item in content
                             {
-                                if !allNews.contains({ news -> Bool in news.id as! Int == item["id"] as! Int })
+                                if !self.allNews.contains(where: { news -> Bool in Int(news.id)  == item["id"] as! Int })
                                 {
                                     _ = News(with: item)
                                 }
