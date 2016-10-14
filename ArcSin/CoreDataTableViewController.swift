@@ -34,12 +34,10 @@ extension CoreDataTableViewController {
 }
 
 // MARK:  - Table Data Source
-extension CoreDataTableViewController{
-    
+extension CoreDataTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-         return fetchedResultsController?.sections?.count ?? 0
+        return fetchedResultsController?.sections?.count ?? 0
     }
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

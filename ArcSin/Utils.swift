@@ -36,7 +36,8 @@ struct Network
     struct URLParameterValue {
         static let appKey = "04f0f542ea27a58461a44fbd75a89b30"
         static let packageName = "ru.arcsinus.SalesBlast"
-        static let appVersion = "1.1.0"
+        static let appVersionOne = "1.1.0"
+        static let appVersionTwo = "1.2.0"
         static let deviceType  = "0"
         static let lastSession = "0"
         static let contentTypeId = "0"

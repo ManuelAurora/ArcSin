@@ -7,11 +7,16 @@
 //
 
 import CoreLocation
-
+import UIKit
 
 class DeviceStatusIdentifier: NSObject, CLLocationManagerDelegate
 {
     private let locationManager = CLLocationManager()
+    
+    let deviceVersion          = UIDevice.current.systemVersion
+    let deviceModel            = UIDevice.current.model
+    let screen                 = UIScreen.main.bounds
+    let identifier             = UIDevice.current.identifierForVendor!.uuidString
     
     var location: CLLocation?
     

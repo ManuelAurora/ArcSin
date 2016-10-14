@@ -6,13 +6,10 @@ class NetworkRequestHandler
 {
     private let sharedSession          = URLSession.shared
     private let deviceStatusIdentifier = DeviceStatusIdentifier.sharedInstance()
-    private let deviceVersion          = UIDevice.current.systemVersion
-    private let deviceModel            = UIDevice.current.model
-    private let screen                 = UIScreen.main.bounds
-    private let identifier             = UIDevice.current.identifierForVendor!.uuidString
+    
     private var uid: String? {
         didSet {
-            requestData(isRequestUid: true)
+            requestData(isRequestUid: false)
         }
     }
     
@@ -27,17 +24,16 @@ class NetworkRequestHandler
     
     func requestData(isRequestUid: Bool) {
         
-        var urlWithComponents = URLComponents(string: Network.url)
+        var urlWithComponents = URLComponents()
         
-        urlWithComponents!.queryItems = [
+        urlWithComponents.queryItems = [
             URLQueryItem(name: Network.URLParameterKey.appKey, value: Network.URLParameterValue.appKey),
             URLQueryItem(name: Network.URLParameterKey.packageName, value: Network.URLParameterValue.packageName),
-            URLQueryItem(name: Network.URLParameterKey.appVersion, value: Network.URLParameterValue.appVersion),
             URLQueryItem(name: Network.URLParameterKey.deviceType, value: Network.URLParameterValue.deviceType),
-            URLQueryItem(name: Network.URLParameterKey.deviceVersion, value: deviceVersion),
-            URLQueryItem(name: Network.URLParameterKey.deviceModel, value: deviceModel),
-            URLQueryItem(name: Network.URLParameterKey.screenHeight, value: String(describing: screen.height)),
-            URLQueryItem(name: Network.URLParameterKey.screenWidth, value: String(describing: screen.width))
+            URLQueryItem(name: Network.URLParameterKey.deviceVersion, value: deviceStatusIdentifier.deviceVersion),
+            URLQueryItem(name: Network.URLParameterKey.deviceModel, value: deviceStatusIdentifier.deviceModel),
+            URLQueryItem(name: Network.URLParameterKey.screenHeight, value: String(describing: deviceStatusIdentifier.screen.height)),
+            URLQueryItem(name: Network.URLParameterKey.screenWidth, value: String(describing: deviceStatusIdentifier.screen.width))
         ]
         
         if let location = deviceStatusIdentifier.location
@@ -48,34 +44,38 @@ class NetworkRequestHandler
             let queryItemLat = URLQueryItem(name: Network.URLParameterKey.latitude, value: latitude)
             let queryItemLon = URLQueryItem(name: Network.URLParameterKey.longitude, value: longitude)
             
-            urlWithComponents!.queryItems?.append(queryItemLat)
-            urlWithComponents!.queryItems?.append(queryItemLon)
+            urlWithComponents.queryItems?.append(queryItemLat)
+            urlWithComponents.queryItems?.append(queryItemLon)
         }
         
-        if isRequestUid
+        if !isRequestUid
         {
             let queryUid = URLQueryItem(name: Network.URLParameterKey.uid, value: uid!)
             let querySessionDate = URLQueryItem(name: Network.URLParameterKey.lastSession, value: Network.URLParameterValue.lastSession)
             let contentType = URLQueryItem(name: Network.URLParameterKey.contentTypeId, value: Network.URLParameterValue.contentTypeId)
             let fromID = URLQueryItem(name: Network.URLParameterKey.fromId, value: Network.URLParameterValue.fromId)
             let max = URLQueryItem(name: Network.URLParameterKey.max, value: Network.URLParameterValue.max)
+            let version = URLQueryItem(name: Network.URLParameterKey.appVersion, value: Network.URLParameterValue.appVersionTwo)
             
-            urlWithComponents!.queryItems?.append(queryUid)
-            urlWithComponents!.queryItems?.append(querySessionDate)
-            urlWithComponents!.queryItems?.append(contentType)
-            urlWithComponents!.queryItems?.append(fromID)
-            urlWithComponents!.queryItems?.append(max)
+            urlWithComponents.queryItems?.append(version)
+            urlWithComponents.queryItems?.append(queryUid)
+            urlWithComponents.queryItems?.append(querySessionDate)
+            urlWithComponents.queryItems?.append(contentType)
+            urlWithComponents.queryItems?.append(fromID)
+            urlWithComponents.queryItems?.append(max)
         }
         else
         {
-            let queryAiuid = URLQueryItem(name: Network.URLParameterKey.aiUid, value: identifier)
+            let queryAiuid = URLQueryItem(name: Network.URLParameterKey.aiUid, value: deviceStatusIdentifier.identifier)
+            let version = URLQueryItem(name: Network.URLParameterKey.appVersion, value: Network.URLParameterValue.appVersionOne)
             
-            urlWithComponents!.queryItems?.append(queryAiuid)
+            urlWithComponents.queryItems?.append(version)
+            urlWithComponents.queryItems?.append(queryAiuid)
         }
         
-        var request = URLRequest(url: urlWithComponents!.url!)
+        var request = URLRequest(url: URL(string: Network.url)!)
         
-        request.httpBody = (urlWithComponents!.url!.absoluteString).data(using: .utf8)!
+        request.httpBody = urlWithComponents.query!.data(using: .utf8)
         
         request.httpMethod = "POST"
         

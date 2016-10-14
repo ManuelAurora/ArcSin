@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class NewsDetailViewController: UIViewController
 {
@@ -19,6 +20,20 @@ class NewsDetailViewController: UIViewController
     
     var news: News!
     
-    
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let imageData = news.largImage
+        {
+            imageView.image = UIImage(data: imageData as Data)
+        }
+        if let imgURL = news.imageURL
+        {
+            imageView.image = NetworkRequestHandler.sharedInstance().requestImage(with: URL(string: imgURL)!)
+        }
+        
+        fullTextView.text = news.fullText!
+        
+        dateLabel.text = news.publicationDate!.description
+    }
 }

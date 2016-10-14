@@ -3,22 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "CoreDataTableViewController.numberOfSections(in : UITableView) -&gt; Int:CoreDataTableViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "fetchedResultsController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "NetworkRequestHandler.requestData() -&gt; ():NetworkRequestHandler.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "deviceStatusIdentifier.location">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "NewsTableViewController.viewDidAppear(Bool) -&gt; ():NewsTableViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -31,6 +15,118 @@
          <PersistentStrings>
             <PersistentString
                value = "httpStatus.statusCode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewsTableViewController.fetchData() -&gt; ():NewsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "request">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NetworkRequestHandler.requestData(isRequestUid : Bool) -&gt; ():NetworkRequestHandler.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "uid">
+            </PersistentString>
+            <PersistentString
+               value = "urlWithComponents.query">
+            </PersistentString>
+            <PersistentString
+               value = "urlWithComponents">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "News.init(with : [String : Any]) -&gt; News:News+CoreDataClass.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fullText">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewsTableViewController.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:NewsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fetchedResultsController!.fetchedObjects!.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "News.init(with : [String : AnyObject]) -&gt; News:News.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dict[&quot;publish_time&quot;] as! String">
+            </PersistentString>
+            <PersistentString
+               value = "formatter.date(from: dict[&quot;publish_time&quot;] as! String)">
+            </PersistentString>
+            <PersistentString
+               value = "publicationDate">
+            </PersistentString>
+            <PersistentString
+               value = "formatter.date(from: &quot;13-11-1910 14:51:31&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewsDetailViewController.viewWillAppear(Bool) -&gt; ():NewsDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "news">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CoreDataTableViewController.numberOfSections(in : UITableView) -&gt; Int:CoreDataTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fetchedResultsController">
+            </PersistentString>
+            <PersistentString
+               value = "return fetchedResultsController?.sections?.count ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "News.init(with : [String : AnyObject]) -&gt; News:News+CoreDataClass.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "smallImageURL">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewsTableViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:NewsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "news.fullText!">
+            </PersistentString>
+            <PersistentString
+               value = "news.smallImageURL">
+            </PersistentString>
+            <PersistentString
+               value = "cell.headerLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NetworkRequestHandler.requestData() -&gt; ():NetworkRequestHandler.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "deviceStatusIdentifier.location">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewsTableViewController.action(AnyObject) -&gt; ():NewsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fetchedResultsController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
