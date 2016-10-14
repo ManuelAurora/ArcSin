@@ -7,6 +7,8 @@ class NetworkRequestHandler
     private let sharedSession          = URLSession.shared
     private let deviceStatusIdentifier = DeviceStatusIdentifier.sharedInstance()
     
+    private var allNews = [News]()
+    
     private var uid: String? {
         didSet {
             requestData(isRequestUid: false)
@@ -114,8 +116,10 @@ class NetworkRequestHandler
                         {
                             for item in content
                             {
-                                _ = News(with: item)
-                                
+                                if !allNews.contains({ news -> Bool in news.id as! Int == item["id"] as! Int })
+                                {
+                                    _ = News(with: item)
+                                }
                             }
                         }
                     }

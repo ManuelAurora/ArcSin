@@ -21,20 +21,6 @@ class NewsTableViewController: CoreDataTableViewController
         
         deviceStatusIdentifier.getCurrentLocation()
         
-//        let params: [String: AnyObject] = ["full_text": "dsfdsfdsfDSFs dfk dsfk dslfk d;lskf l;sdkflsdkf sdlf ksdlf ksd;fk dslfk dslkfdsf dsf sdf dsf dsfsdf sdf" as AnyObject,
-//                      "header": "Header" as AnyObject,
-//                      "id": 332 as AnyObject,
-//                      "change_datetime": "13-12-2016 12:45:45" as AnyObject,
-//                      "short_text":  "ASd asd asdsa asdsad sad asd sad saa s as " as AnyObject,
-//                      "publish_time":"13-12-2016 12:45:45" as AnyObject,
-//                      "img_url": "https://avatars2.githubusercontent.com/u/16256233?v=3&s=64" as AnyObject,
-//                      "img_preview_url": "https://avatars2.githubusercontent.com/u/16256233?v=3&s=64" as AnyObject,
-//                      "content_type_id": 1 as AnyObject]
-//            
-//          _ = News(with: params)
-        
-  //      try! DataManager.sharedInstance().saveContext()
-        
         fetchData()
     }
 
