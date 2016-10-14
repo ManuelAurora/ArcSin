@@ -7,7 +7,7 @@ class NetworkRequestHandler
     private let sharedSession          = URLSession.shared
     private let deviceStatusIdentifier = DeviceStatusIdentifier.sharedInstance()
     
-    private var allNews = [News]()
+    var allNews: [News]!    
     
     private var uid: String? {
         didSet {

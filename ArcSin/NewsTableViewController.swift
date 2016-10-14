@@ -6,6 +6,7 @@ class NewsTableViewController: CoreDataTableViewController
 {
     let deviceStatusIdentifier = DeviceStatusIdentifier.sharedInstance()
     let networkRequestHandler  = NetworkRequestHandler.sharedInstance()
+   
     
     let managedContext = DataManager.sharedInstance().context
     
@@ -16,12 +17,17 @@ class NewsTableViewController: CoreDataTableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchData()
+        
+        networkRequestHandler.allNews = fetchedResultsController?.fetchedObjects as! [News]
+        
         tableView.estimatedRowHeight = 80.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
         deviceStatusIdentifier.getCurrentLocation()
         
-        fetchData()
+        
+        
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
