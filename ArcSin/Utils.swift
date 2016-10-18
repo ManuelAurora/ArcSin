@@ -8,11 +8,16 @@
 
 import UIKit
 
-
+struct Storyboard
+{
+    
+    static let showDetail = "NewsShow"
+}
 struct Network
 {
-    static let url = "http://service-retailmob.rhcloud.com/api/v1/mobclient/register"
-                        
+    static let registerUrl = "http://service-retailmob.rhcloud.com/api/v1/mobclient/register"
+    static let getContentUrl = "http://service-retailmob.rhcloud.com/api/v1/mobclient/getContent"
+    
     struct URLParameterKey
     {
         static let appKey = "app_key"

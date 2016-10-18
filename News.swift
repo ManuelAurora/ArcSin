@@ -33,9 +33,22 @@ class News: NSManagedObject
         lastChangeTime = formatter.date(from: dict["change_datetime"]! as! String) as NSDate?
         publicationDate = formatter.date(from: dict["publish_time"] as! String) as NSDate?
         smallImageURL = dict["img_preview_url"] as? String
-        imageURL = dict["img_url"] as? String
+        
+        if let string = (dict["img_url"] as? String) {
+            imageURL =  pretty(urlString: string)
+        }
+        
         contentID = Int16(dict["content_type_id"] as! Int)
         link = dict["link"] as? String
     }
 
+    private func pretty(urlString: String) -> String {
+        
+        let startIndex = urlString.index(urlString.startIndex, offsetBy: 2)
+        let endIndex   = urlString.index(urlString.endIndex, offsetBy: -3)
+        
+        let pretty = urlString[startIndex...endIndex]
+        
+        return pretty
+    }
 }

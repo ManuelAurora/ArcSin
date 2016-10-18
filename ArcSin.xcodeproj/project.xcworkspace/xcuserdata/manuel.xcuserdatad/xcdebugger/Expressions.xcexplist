@@ -11,10 +11,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NetworkRequestHandler.(requestData() -&gt; ()).(closure #1):NetworkRequestHandler.swift">
+         contextName = "NewsTableViewController.action(AnyObject) -&gt; ():NewsTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "httpStatus.statusCode">
+               value = "fetchedResultsController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -23,6 +23,14 @@
          <PersistentStrings>
             <PersistentString
                value = "request">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewsTableViewController.prepare(for : UIStoryboardSegue, sender : Any?) -&gt; ():NewsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue.identifier">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -49,6 +57,41 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "News.init(with : [String : AnyObject]) -&gt; News:News.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "header">
+            </PersistentString>
+            <PersistentString
+               value = "publicationDate">
+            </PersistentString>
+            <PersistentString
+               value = "formatter.date(from: dict[&quot;publish_time&quot;] as! String)">
+            </PersistentString>
+            <PersistentString
+               value = "formatter.date(from: &quot;13-11-1910 14:51:31&quot;)">
+            </PersistentString>
+            <PersistentString
+               value = "smallImageURL">
+            </PersistentString>
+            <PersistentString
+               value = "contentID">
+            </PersistentString>
+            <PersistentString
+               value = "dict[&quot;publish_time&quot;] as! String">
+            </PersistentString>
+            <PersistentString
+               value = "fullText">
+            </PersistentString>
+            <PersistentString
+               value = "shortText">
+            </PersistentString>
+            <PersistentString
+               value = "imageURL">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "NewsTableViewController.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:NewsTableViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -57,25 +100,11 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "News.init(with : [String : AnyObject]) -&gt; News:News.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "dict[&quot;publish_time&quot;] as! String">
-            </PersistentString>
-            <PersistentString
-               value = "formatter.date(from: dict[&quot;publish_time&quot;] as! String)">
-            </PersistentString>
-            <PersistentString
-               value = "publicationDate">
-            </PersistentString>
-            <PersistentString
-               value = "formatter.date(from: &quot;13-11-1910 14:51:31&quot;)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "NewsDetailViewController.viewWillAppear(Bool) -&gt; ():NewsDetailViewController.swift">
          <PersistentStrings>
+            <PersistentString
+               value = "url">
+            </PersistentString>
             <PersistentString
                value = "news">
             </PersistentString>
@@ -104,13 +133,16 @@
          contextName = "NewsTableViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:NewsTableViewController.swift">
          <PersistentStrings>
             <PersistentString
+               value = "cell.headerLabel.text">
+            </PersistentString>
+            <PersistentString
+               value = "news.contentID">
+            </PersistentString>
+            <PersistentString
                value = "news.fullText!">
             </PersistentString>
             <PersistentString
                value = "news.smallImageURL">
-            </PersistentString>
-            <PersistentString
-               value = "cell.headerLabel.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -123,10 +155,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NewsTableViewController.action(AnyObject) -&gt; ():NewsTableViewController.swift">
+         contextName = "NetworkRequestHandler.(requestData() -&gt; ()).(closure #1):NetworkRequestHandler.swift">
          <PersistentStrings>
             <PersistentString
-               value = "fetchedResultsController">
+               value = "httpStatus.statusCode">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

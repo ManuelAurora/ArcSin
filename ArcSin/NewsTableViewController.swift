@@ -16,12 +16,16 @@ class NewsTableViewController: CoreDataTableViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib = UINib(nibName: "NewsCellView", bundle: nil)
+        
+        tableView.register(nib, forCellReuseIdentifier: "NewsCell")
                
         fetchData()
         
         networkRequestHandler.allNews = fetchedResultsController?.fetchedObjects as! [News]
         
-        tableView.estimatedRowHeight = 80.0
+        tableView.estimatedRowHeight = 110.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
         deviceStatusIdentifier.getCurrentLocation()
@@ -58,13 +62,26 @@ class NewsTableViewController: CoreDataTableViewController
         }
         
         cell.dateLabel.textColor = tint
-        cell.dateLabel.text = "\(label), " + formatter.string(from: news.publicationDate! as Date)
-        cell.headerLabel.text = news.header!
-        cell.shortTextLabel.text = news.shortText!
-                
+        cell.dateLabel.text = "\(label)"
+        
+        if let publicDate = news.publicationDate
+        {
+            let text = ["\(label)", formatter.string(from: publicDate as Date)]
+            
+            cell.dateLabel.text = text.joined(separator: ", ")
+        }
+        
+        cell.headerLabel.text = news.header ?? ""
+        cell.shortTextLabel.text = news.shortText ?? ""
+        
         if news.smallImage == nil
         {
-            cell.imageView?.image = networkRequestHandler.requestImage(with: URL(string: news.smallImageURL!)!)
+            if let imageUrlString = news.smallImageURL,
+                let url = URL(string: imageUrlString),
+                let image = networkRequestHandler.requestImage(with: url) {
+                
+                cell.imageView?.image = image
+            }
         }
         else
         {
@@ -86,14 +103,20 @@ class NewsTableViewController: CoreDataTableViewController
         return fetchedResultsController!.sections!.count
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "NewsShow" else { return }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
+        performSegue(withIdentifier: Storyboard.showDetail, sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard segue.identifier == Storyboard.showDetail else { return }
         
         let controller = segue.destination as! NewsDetailViewController
         
-        controller.news = fetchedResultsController?.object(at: indexPath!) as! News
+        let indexPath = sender as! IndexPath
+        
+        controller.news = fetchedResultsController?.object(at: indexPath) as! News
     }
     
     func fetchData() {

@@ -18,6 +18,8 @@ class NewsDetailViewController: UIViewController
     
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var headerLabel: UILabel!
+    
     var news: News!
     
     @IBAction func tappedOnImage(_ sender: UITapGestureRecognizer) {
@@ -38,13 +40,28 @@ class NewsDetailViewController: UIViewController
         {
             imageView.image = UIImage(data: imageData as Data)
         }
-        if let imgURL = news.imageURL
-        {
-            imageView.image = NetworkRequestHandler.sharedInstance().requestImage(with: URL(string: imgURL)!)
+        if let imgUrlString = news.imageURL,
+            let url   = URL(string: imgUrlString),
+            let image = NetworkRequestHandler.sharedInstance().requestImage(with:url) {
+            
+            imageView.image = image
         }
         
-        fullTextView.text = news.fullText!
+        if let header = news.header
+        {
+            headerLabel.text = header
+        }
         
-        dateLabel.text = news.publicationDate!.description
+        let formatter = DateFormatter()
+        
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        formatter.locale    = .current
+        
+        fullTextView.text = news.fullText!
+        if let date = news.publicationDate as? Date
+        {
+            dateLabel.text = formatter.string(from: date)
+        }
     }
 }

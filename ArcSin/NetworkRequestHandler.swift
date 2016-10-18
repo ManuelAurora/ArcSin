@@ -75,7 +75,9 @@ class NetworkRequestHandler
             urlWithComponents.queryItems?.append(queryAiuid)
         }
         
-        var request = URLRequest(url: URL(string: Network.url)!)
+        let urlString = isRequestUid ? Network.registerUrl : Network.getContentUrl
+        
+        var request = URLRequest(url: URL(string: urlString)!)
         
         request.httpBody = urlWithComponents.query!.data(using: .utf8)
         
@@ -133,13 +135,20 @@ class NetworkRequestHandler
         
     }
     
-    func requestImage(with url: URL) -> UIImage {
+    func requestImage(with url: URL) -> UIImage? {
         
-        let imageData = try! Data(contentsOf: url)
+        do {
+            let imageData = try Data(contentsOf: url)
+            
+            let image = UIImage(data: imageData)
+            
+            return image
+        }
+        catch let error {
+            print(error)
+        }
         
-        let image = UIImage(data: imageData)
-        
-        return image!
+        return nil
     }
 
 }
