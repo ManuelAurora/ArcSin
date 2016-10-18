@@ -40,7 +40,7 @@ class NewsTableViewController: CoreDataTableViewController
         
         let formatter = DateFormatter()
         
-        formatter.dateStyle = .long
+        formatter.dateStyle = .medium
         formatter.timeStyle = .none
         formatter.locale    = .current
         
